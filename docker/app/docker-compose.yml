@@ -1,0 +1,16 @@
+version: "2"
+services:
+  server:
+    image: server
+    build: ../../
+    ports:
+      - 6500:6500
+    container_name: server
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PORT=6500
+      - SECRET_KEY=334f4ba16619e4e15e7d85476f524458bcecd74287eceb7948f25ffd47d03cc50cb5e277fcd1e520e845c749faf9f7a19f3b7ba8f57678a712973a6735300115
+      - mailto:mongo_uri=mongodb+srv://oasix:oasix123@cluster0.tqgrfix.mongodb.net/oasix
+      - NODE_OPTIONS=--max-old-space-size=8192
